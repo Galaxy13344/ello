@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				348,
+				21
+			],
+			"loop": false,
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Left",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-52,
+				-206
+			],
+			"loop": false,
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Down",
+			"indices": []
+		},
+		{
+			"offsets": [
+				50,
+				365
+			],
+			"loop": false,
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-64,
+				23
+			],
+			"loop": false,
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Right",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Idle",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Finn-sword",
+	"position": [
+		210,
+		200
+	],
+	"healthicon": "finn",
+	"flip_x": false,
+	"healthbar_colors": [
+		168,
+		160,
+		179
+	],
+	"camera_position": [
+		-290,
+		-90
+	],
+	"sing_duration": 6.1,
+	"scale": 2
+}

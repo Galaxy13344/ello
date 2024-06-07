@@ -1,0 +1,68 @@
+--Code por Nickobelit
+idle= true
+function onCreate()
+    makeAnimatedLuaSprite('jake', 'characters/jake',1150, 880)
+    addAnimationByPrefix('jake', 'idle', 'Idle', 12, false)
+    addAnimationByPrefix('jake', 'singLEFT', 'Left', 12, false)
+    addAnimationByPrefix('jake', 'singDOWN', 'Down', 12, false)
+    addAnimationByPrefix('jake', 'singUP', 'Up', 12, false)
+    addAnimationByPrefix('jake', 'singRIGHT', 'Right', 12, false)
+    
+    addOffset('jake', 'singLEFT', 137, 3)
+    addOffset('jake', 'singDOWN', 15, -131)
+    addOffset('jake', 'singUP', 114, 306)
+    addOffset('jake', 'singRIGHT', 79, 103)
+    addOffset('jake', 'idle',-14,-48)
+        
+    addLuaSprite('jake', false)
+    setProperty('jake.alpha',1)
+    
+end
+
+function onCreatePost()
+        
+end
+
+
+function onBeatHit()
+		if idle == true then
+		objectPlayAnimation('jake', 'idle', false)
+	end
+end
+
+function onCountdownTick(counter)
+	if counter % 2 == 0 then
+        objectPlayAnimation('jake', 'idle', false)
+	end
+end
+
+function opponentNoteHit(id, noteData, noteType, isSustainNote)
+if noteType == 'Second Char Sing' then
+if noteData == 0 then
+        idle= false
+        objectPlayAnimation('jake', 'singLEFT',true);       
+        runTimer('idlejake', 0.5)
+end
+if noteData == 1 then
+        idle= false
+        objectPlayAnimation('jake', 'singDOWN',true);
+        runTimer('idlejake', 0.5)
+end
+if noteData == 2 then
+         idle= false
+         objectPlayAnimation('jake', 'singUP',true);
+        runTimer('idlejake', 0.5)
+end
+if noteData == 3 then
+        idle= false
+        objectPlayAnimation('jake', 'singRIGHT',true);
+        runTimer('idlejake', 0.5)
+end
+end
+end
+
+function onTimerCompleted(tag, loops, loopsLeft)
+if tag == 'idlejake' then
+idle= true
+end
+end

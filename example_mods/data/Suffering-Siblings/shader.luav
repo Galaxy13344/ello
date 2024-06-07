@@ -1,0 +1,33 @@
+function onStepHit()
+if curStep == 2080 then
+chromToggle()
+end
+
+if curStep == 2336 then
+singToggle()
+end
+end
+
+function chromToggle()
+    runHaxeCode([[
+            var chromToggle = game.createRuntimeShader('ChromaticAbberationHUD');
+            var chromGraphic = new ShaderFilter(chromToggle);
+            game.camHUD.setFilters([chromGraphic]);
+            game.camGame.setFilters([chromGraphic]);
+            game.getLuaObject('chromToggle').shader = chromToggle;
+
+            return;
+        ]]
+    )
+    activated = true
+end
+
+function singToggle()
+runHaxeCode([[
+
+			trace(ShaderFilter);
+
+			game.camGame.setFilters([new ShaderFilter(game.getLuaObject("temporaryShader1").shader),new ShaderFilter(game.getLuaObject("temporaryShader1").shader)]);
+		]])
+		end
+
